@@ -12,8 +12,8 @@ class GroupController extends Controller
     public function index()
     {
         $voos = Voo::all()->toArray();
-        $out = array_filter($voos, fn ($voo) => $voo['outbound']);
-        $in = array_filter($voos, fn ($voo) => $voo['inbound']);
+        $out = array_filter($voos, fn ($voo) => ($voo['outbound']));
+        $in = array_filter($voos, fn ($voo) => ($voo['inbound']));
         $mapVoos = array_map(function ($out) use ($in) {
             $id = Uuid::uuid4();
             foreach ($in as $value) {
