@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class VooGroupRelation extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('groups', function (Blueprint $table) {
+            $table->foreign('outbound_id')
+                ->references('id')
+                ->on('voo_group');
+            $table->foreign('inbound_id')
+                ->references('id')
+                ->on('voo_group');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('groups', function (Blueprint $table) {
+            //
+        });
+    }
+}
