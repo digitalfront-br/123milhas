@@ -17,7 +17,6 @@ use App\Http\Controllers\{VooController, GroupController};
 
 Route::get('voos', [VooController::class, 'index']);
 Route::get('groups', [GroupController::class, 'index']);
-Route::get('groups/{uuid}', [GroupController::class, 'show']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -1,10 +1,11 @@
 <?php
 
+use App\Models\Voo;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class VooGroupRelation extends Migration
+class GroupRelation extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +16,11 @@ class VooGroupRelation extends Migration
     {
         Schema::table('groups', function (Blueprint $table) {
             $table->foreign('outbound_id')
-                ->references('id')
-                ->on('voo_group');
+                ->references('outbound')
+                ->on('voos');
             $table->foreign('inbound_id')
-                ->references('id')
-                ->on('voo_group');
+                ->references('inbound')
+                ->on('voos');
         });
     }
 

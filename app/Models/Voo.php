@@ -25,7 +25,13 @@ class Voo extends Model
         'outbound',
         'inbound',
         'duration',
+        'group_id',
     ];
 
     public $timestamps = false;
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }

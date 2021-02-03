@@ -25,10 +25,10 @@ class CreateVoosTable extends Migration
             $table->string('departureTime');
             $table->string('arrivalTime');
             $table->integer('classService');
-            $table->decimal('price');
+            $table->integer('price');
             $table->integer('tax');
-            $table->integer('outbound');
-            $table->integer('inbound');
+            $table->bigInteger('outbound')->index();
+            $table->bigInteger('inbound')->index();
             $table->string('duration');
         });
     }

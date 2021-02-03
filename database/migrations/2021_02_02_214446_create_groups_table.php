@@ -14,10 +14,10 @@ class CreateGroupsTable extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            $table->uuid('uniqueId')->unique()->primary()->autoIncrement();
+            $table->uuid('uniqueId')->unique()->primary()->autoIncrement(true);
             $table->integer('totalPrice');
-            $table->unsignedBigInteger('outbound_id')->nullable();
-            $table->unsignedBigInteger('inbound_id')->nullable();
+            $table->bigInteger('outbound_id')->nullable()->default(0);
+            $table->bigInteger('inbound_id')->nullable()->default(0);
         });
     }
 
